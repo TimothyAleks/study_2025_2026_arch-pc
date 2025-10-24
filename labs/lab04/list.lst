@@ -1,0 +1,19 @@
+     1                                  section .data
+     2 00000000 48656C6C6F20576F72-             hello: db "Hello World!", 0xa
+     2 00000009 6C64210A           
+     3                                                hellolen: equ $ -hello
+     4                                  
+     5                                  section .text
+     6                                      global _start
+     7                                  
+     8                                  _start:
+     9 00000000 B804000000                  mov eax, 4
+    10 00000005 BB01000000                  mov ebx, 1
+    11 0000000A B9[00000000]                mov ecx, hello
+    12 0000000F BA0D000000                  mov edx, hellolen
+    13 00000014 CD00                        int 0*80
+    14                                  
+    15 00000016 B801000000                  mov eax, 1
+    16 0000001B BB00000000                  mov ebx, 0
+    17 00000020 CD00                        int 0*80
+    18                                  
