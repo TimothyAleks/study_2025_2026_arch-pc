@@ -1,0 +1,30 @@
+call sprint
+mov ecx, B
+mov edx, 10
+call sread
+mov eax, B
+call atoi
+mov [B], eax
+mov ecx, [A]
+mov [max], ecx
+cmp ecx, [C]
+jg check_B
+mov ecx, [C]
+mov [max], ecx
+check_B:
+mov eax, ...
+error: invalid combination of opcode and operands
+call atoi
+mov [max], eax
+mov ecx, [max]
+cmp ecx, [B]
+jg fin
+mov ecx, [B]
+mov [max], ecx
+fin:
+mov eax, msg2
+call sprint
+mov eax, [max]
+call iprintLF
+call quit
+
